@@ -20,7 +20,17 @@ python -m create_package
 
 # Deploy in AWS
 
-...
+First we create a new environment in AWS beanstalk.
+
+![beanstalk logo](docs/images/beanstalk_logo.png)
+
+![tier](docs/images/tier.png)
+
+![platform](docs/images/platform.png)
+
+![appliction code](docs/images/application_code.png)
+
+Now wait for the environment to become available.
 
 # Start Demo
 
