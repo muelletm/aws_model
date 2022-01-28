@@ -3,5 +3,11 @@
     "Logging": "/tmp/tensorflow",
     "Image": {
         "Update": "false"
-    }
+    },
+    "Ports": [
+        {
+            "ContainerPort": 8080,
+            "HostPort": 8080
+        }
+    ]
 }

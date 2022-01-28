@@ -25,6 +25,6 @@ python -m create_package
 # Start Demo
 
 ```console
-export ENDPOINT_URL="http://sentiment-env.eba-hviumu6m.eu-central-1.elasticbeanstalk.com/"
+export ENDPOINT_URL="http://sentiment-env.eba-hviumu6m.eu-central-1.elasticbeanstalk.com"
 streamlit run app.py
 ```

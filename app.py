@@ -19,24 +19,34 @@ def call_model(text: str):
     return response.json()
 
 
-text = st.text_input("text", "¡Me encanta este producto!")
+st.set_page_config("Sentiment Model Demo", page_icon="🤖")
+
+st.markdown("## Sentiment Model Demo")
+
+text = st.text_input(
+    "text", "Funciona bien, pero para el precio me esperaba más."
+)
 
 with st.spinner():
     t_start = datetime.now()
     predictions = call_model(text)["predictions"][0]
     t_end = datetime.now()
 
-# predictions = [round(p, 3) for p in predictions]
-
 df = pd.DataFrame(
     [
-        {"stars": "*" * (i + 1), "probability": p}
+        {"stars": "⭐" * (i + 1), "probability": p}
         for i, p in enumerate(predictions)
     ]
 ).set_index("stars")
 
-st.table(df)
+mode = st.sidebar.selectbox("mode", ["table", "bar_chart"], index=1)
 
+if mode == "table":
+    st.table(df)
+elif mode == "bar_chart":
+    st.bar_chart(df)
+else:
+    raise NotImplementedError(mode)
 
 st.markdown(
     f"Processed request in {(t_end - t_start).total_seconds()} seconds."
