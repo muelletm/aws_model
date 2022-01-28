@@ -38,3 +38,5 @@ Now wait for the environment to become available.
 export ENDPOINT_URL="http://sentiment-env.eba-hviumu6m.eu-central-1.elasticbeanstalk.com"
 streamlit run app.py
 ```
+
+![demo](docs/images/demo.png)
