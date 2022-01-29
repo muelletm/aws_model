@@ -116,3 +116,7 @@ streamlit run app.py
 ```
 
 ![demo](docs/images/demo.png)
+
+## Stop & Delete
+
+Don't forget to stop and delte the service when you are done.

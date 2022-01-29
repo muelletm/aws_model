@@ -82,3 +82,7 @@ streamlit run app.py
 ```
 
 ![demo](docs/images/demo.png)
+
+## Stop & Delete
+
+Don't forget to terminate the environment when you are done.
