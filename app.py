@@ -1,17 +1,18 @@
 import os
 from datetime import datetime
+from typing import List, Tuple
 
 import pandas as pd
 import requests
 import streamlit as st
 
-ENDPOINT_URL = os.environ["ENDPOINT_URL"]
+ENDPOINT_URL = os.environ["ENDPOINT_URL"].strip("/")
 
 
-def call_model(text: str):
+def sentiment(text: str):
     response = requests.post(
-        url=ENDPOINT_URL,
-        json={"signature_name": "serving_default", "instances": [text]},
+        url=ENDPOINT_URL + "/sentiment",
+        json={"texts": [text]},
         timeout=5,
     )
     if not response.ok:
@@ -29,14 +30,11 @@ text = st.text_input(
 
 with st.spinner():
     t_start = datetime.now()
-    predictions = call_model(text)["predictions"][0]
+    predictions: List[Tuple[str, float]] = sentiment(text)["predictions"][0]
     t_end = datetime.now()
 
 df = pd.DataFrame(
-    [
-        {"stars": "⭐" * (i + 1), "probability": p}
-        for i, p in enumerate(predictions)
-    ]
+    [{"stars": "⭐" * int(stars), "probability": p} for stars, p in predictions]
 ).set_index("stars")
 
 mode = st.sidebar.selectbox("mode", ["table", "bar_chart"], index=1)

@@ -1,5 +1,3 @@
-tensorflow==2.27.1
-datasets==1.18.1
-typer==0.4.0
+fastapi==0.73.0
 requests==2.27.1
-streamlit==1.5.0
+uvicorn[standard]

@@ -1,16 +1,28 @@
 # Using the official tensorflow serving image from docker hub as base image
-FROM tensorflow/serving
+FROM python:3.8
 
 # Installing NGINX, used to rever proxy the predictions from SageMaker to TF Serving
-RUN apt-get update && apt-get install -y --no-install-recommends nginx
+
+RUN echo "deb [arch=amd64] http://storage.googleapis.com/tensorflow-serving-apt stable tensorflow-model-server tensorflow-model-server-universal" | tee /etc/apt/sources.list.d/tensorflow-serving.list 
+
+RUN curl https://storage.googleapis.com/tensorflow-serving-apt/tensorflow-serving.release.pub.gpg | apt-key add -
+
+RUN apt-get update 
+
+RUN apt-get install -y --no-install-recommends tensorflow-model-server
 
 # Copy our model folder to the container
 COPY models models
 
-# Copy NGINX configuration to the container
-COPY docker/nginx.conf /etc/nginx/nginx.conf
+ADD requirements.txt requirements.txt
+
+RUN pip3 install --upgrade pip
+
+RUN pip3 install -r requirements.txt
 
 ADD docker/endpoint.sh endpoint.sh
+
+COPY api api
 
 RUN chmod +x endpoint.sh
 

@@ -7,7 +7,7 @@ Deploy a [Tensorflow Serving](https://www.tensorflow.org/tfx/guide/serving) mode
 (Run this from an environment such as conda.)
 
 ```console
-pip install -r requirements.txt
+pip install -r requirements.txt -r train-requirements.txt
 ```
 
 # Train the model
@@ -66,13 +66,13 @@ Now we can start our demo server locally and make calls to the deployed model.
 ### Linux / bash
 
 ```bash
-export ENDPOINT_URL="http://sentiment-env.eba-hviumu6m.eu-central-1.elasticbeanstalk.com"
+export ENDPOINT_URL="http://mysentimentmodel.eu-central-1.elasticbeanstalk.com"
 ```
 
 ### Windows
 
 ```bash
-set ENDPOINT_URL="http://sentiment-env.eba-hviumu6m.eu-central-1.elasticbeanstalk.com"
+set ENDPOINT_URL="http://mysentimentmodel.eu-central-1.elasticbeanstalk.com"
 ```
 
 ## Start streamlit

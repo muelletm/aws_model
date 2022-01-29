@@ -7,7 +7,7 @@ Deploy a [Tensorflow Serving](https://www.tensorflow.org/tfx/guide/serving) mode
 (Run this from an environment such as conda.)
 
 ```console
-pip install -r requirements.txt
+pip install -r requirements.txt -r train-requirements.txt
 ```
 
 # Train the model
@@ -62,10 +62,16 @@ sudo docker login mlmodels.azurecr.io
 
 **Important**: replace mlmodels with the name of your registry.
 
-```
+```bash
 docker build -t sentiment .
 docker tag sentiment mlmodels.azurecr.io/models/sentiment
 docker push mlmodels.azurecr.io/models/sentiment
+```
+
+We can also test the model locally by running:
+
+```bash
+docker run --name sentiment --rm -p 8080:8080 sentiment
 ```
 
 You should now see the image in ACR:
