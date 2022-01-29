@@ -1,6 +1,6 @@
-# Deployment with Tensorflow Serving and AWS beanstalk.
+# AWS Model Deployment
 
-Deploy a model via [AWS beanstalk](https://aws.amazon.com/elasticbeanstalk/).
+Deploy a [Tensorflow Serving](https://www.tensorflow.org/tfx/guide/serving) model via [AWS beanstalk](https://aws.amazon.com/elasticbeanstalk/).
 
 # Install dependencies
 
