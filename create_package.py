@@ -13,7 +13,7 @@ def main():
             zip_file.write(filepath)
         zip_file.write("aws/cron.yaml", "cron.yaml")
         zip_file.write("aws/Dockerrun.aws.json", "Dockerrun.aws.json")
-        zip_file.write("docker/Dockerfile", "Dockerfile")
+        zip_file.write("Dockerfile")
         zip_file.write("docker/endpoint.sh")
         zip_file.write("docker/nginx.conf")
 
