@@ -22,7 +22,10 @@ python -m train_model
 
 ## Upload Image
 
-(Requires azure-cli and docker installed.)
+This requires [azure-cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and docker installed.
+Under Linux you can install root-less docker as an unprivilidged user (
+[blogpost](https://medium.com/@tonistiigi/experimenting-with-rootless-docker-416c9ad8c0d6)
+).
 
 ### Create AZR
 
@@ -40,7 +43,7 @@ az login
 #### Option A
 
 ```
-acr login --name mlmodels
+az acr login --name mlmodels
 ```
 
 #### Option B
