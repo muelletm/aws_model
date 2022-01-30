@@ -1,4 +1,4 @@
-# AWS Model Deployment
+# Azure Model Deployment
 
 Deploy a [Tensorflow Serving](https://www.tensorflow.org/tfx/guide/serving) model via [MS Azure App Service](https://azure.microsoft.com/en-us/services/app-service/).
 
