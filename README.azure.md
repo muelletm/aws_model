@@ -27,6 +27,14 @@ Under Linux you can install root-less docker as an unprivilidged user (
 [blogpost](https://medium.com/@tonistiigi/experimenting-with-rootless-docker-416c9ad8c0d6)
 ).
 
+#### Install az and docker (Linux)
+
+```console
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+sudo apt install uidmap
+curl -sSL https://get.docker.com/rootless | sh
+```
+
 ### Create AZR
 
 Create an Azure Container Registry (AZR).
